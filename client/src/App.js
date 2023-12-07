@@ -9,6 +9,7 @@ import CompareMutualFunds from './pages/CompareMutualFunds';
 import Login from './pages/Login';
 import Register from './pages/Register';
 import './App.css';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
   const [signin, setSignin] = useState(false);
@@ -21,6 +22,8 @@ function App() {
         <Route path="/compare-mutual-funds" element={<CompareMutualFunds signin={signin} user={user}/>} />
         <Route path="/login" element={<Login setSignin={setSignin} setUser={setUser}/>} />
         <Route path="/register" element={<Register/>} />
+        <Route path="/forgot-password" element={<ForgotPassword/>} />
+        <Route path="*" element={<h1>Not Found</h1>} />
       </Routes>
     </BrowserRouter>
   );
