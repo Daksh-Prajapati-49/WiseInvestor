@@ -10,6 +10,8 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import './App.css';
 import ForgotPassword from './pages/ForgotPassword';
+import SIPCalculator from './pages/SIPCalculator';
+import LumpSumCalculator from './pages/LumpSumCalculator';
 
 function App() {
   const [signin, setSignin] = useState(false);
@@ -20,6 +22,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={<HomePage signin={signin} user={user}/>} />
         <Route path="/compare-mutual-funds" element={<CompareMutualFunds signin={signin} user={user}/>} />
+        <Route path="/sip-calculator" element={<SIPCalculator/>} />
+        <Route path="/lump-sum-calculator" element={<LumpSumCalculator/>} />
         <Route path="/login" element={<Login setSignin={setSignin} setUser={setUser}/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/forgot-password" element={<ForgotPassword/>} />
