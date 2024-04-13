@@ -137,28 +137,28 @@ function Navbar() {
                             sx={{ my: 2, color: "white", display: "block" }}
                             onClick={handleCloseNavMenu}
                         >
-                            <Typography textAlign="center" onClick={() => navigate("/")}>Home</Typography>
-                            {/* <Link to="/">Home</Link> */}
+                            <Typography textAlign="center" sx={{textTransform: "capitalize"}} onClick={() => navigate("/")}>Home</Typography>
+                            {/* <Link to="/">Home</Link> */} 
                         </Button>
                         <Button
                             sx={{ my: 2, color: "white", display: "block" }}
                             onClick={handleCloseNavMenu}
                         >
-                            <Typography textAlign="center" onClick={() => navigate("/compare-mutual-funds")}>CompareMutualFunds</Typography>
+                            <Typography textAlign="center" sx={{textTransform: "capitalize"}} onClick={() => navigate("/compare-mutual-funds")}>Compare-Mutual-Funds</Typography>
                             {/* <Link to="/compare-mutual-funds">CompareMutualFunds</Link> */}
                         </Button>
                         <Button
                             sx={{ my: 2, color: "white", display: "block" }}
                             onClick={handleCloseNavMenu}
                         >
-                        <Typography textAlign="center" onClick={() => navigate("/sip-calculator")}>SIP Calculator</Typography>
+                        <Typography textAlign="center" sx={{textTransform: "capitalize"}} onClick={() => navigate("/sip-calculator")}>SIP Calculator</Typography>
                             {/* <Link to="/sip-calculator">SIP Calculator</Link> */}
                         </Button>
                         <Button
                             sx={{ my: 2, color: "white", display: "block" }}
                             onClick={handleCloseNavMenu}
                             >
-                                <Typography textAlign="center" onClick={() => navigate("/lump-sum-calculator")}>LumpSum Calculator</Typography>
+                                <Typography textAlign="center" sx={{textTransform: "capitalize"}} onClick={() => navigate("/lump-sum-calculator")}>LumpSum Calculator</Typography>
                         </Button>
 
                         {/* {pages.map((page) => (
