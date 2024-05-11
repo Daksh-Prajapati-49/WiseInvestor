@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 // import * as React from 'react';
@@ -21,7 +21,7 @@ import { useNavigate } from "react-router-dom";
 const pages = ["Home", "Compare-Mutual-Funds", "SIP Calculator"];
 const settings = ["Profile", "Logout"];
 
-function Navbar() {
+function Navbar({user,setUser}) {
     const navigate = useNavigate();
 
     const [anchorElNav, setAnchorElNav] = useState(null);
@@ -40,10 +40,18 @@ function Navbar() {
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
+        localStorage.removeItem('user');
+        setUser(null);
     };
 
+    useEffect(()=>{
+        if(!user){
+            navigate('/login');
+        }
+    },[user])
+
     return (
-        <AppBar position="static" style={{backgroundColor:'#0c4a6e'}}>
+        <AppBar position="static" style={{ backgroundColor: '#0c4a6e' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <InsightsIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
@@ -51,7 +59,7 @@ function Navbar() {
                         variant="h6"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: "none", md: "flex" },
@@ -118,7 +126,7 @@ function Navbar() {
                         variant="h5"
                         noWrap
                         component="a"
-                        href="#app-bar-with-responsive-menu"
+                        href="/"
                         sx={{
                             mr: 2,
                             display: { xs: "flex", md: "none" },
@@ -137,28 +145,28 @@ function Navbar() {
                             sx={{ my: 2, color: "white", display: "block" }}
                             onClick={handleCloseNavMenu}
                         >
-                            <Typography textAlign="center" sx={{textTransform: "capitalize"}} onClick={() => navigate("/")}>Home</Typography>
-                            {/* <Link to="/">Home</Link> */} 
+                            <Typography textAlign="center" sx={{ textTransform: "capitalize" }} onClick={() => navigate("/")}>Home</Typography>
+                            {/* <Link to="/">Home</Link> */}
                         </Button>
                         <Button
                             sx={{ my: 2, color: "white", display: "block" }}
                             onClick={handleCloseNavMenu}
                         >
-                            <Typography textAlign="center" sx={{textTransform: "capitalize"}} onClick={() => navigate("/compare-mutual-funds")}>Compare-Mutual-Funds</Typography>
+                            <Typography textAlign="center" sx={{ textTransform: "capitalize" }} onClick={() => navigate("/compare-mutual-funds")}>Compare-Mutual-Funds</Typography>
                             {/* <Link to="/compare-mutual-funds">CompareMutualFunds</Link> */}
                         </Button>
                         <Button
                             sx={{ my: 2, color: "white", display: "block" }}
                             onClick={handleCloseNavMenu}
                         >
-                        <Typography textAlign="center" sx={{textTransform: "capitalize"}} onClick={() => navigate("/sip-calculator")}>SIP Calculator</Typography>
+                            <Typography textAlign="center" sx={{ textTransform: "capitalize" }} onClick={() => navigate("/sip-calculator")}>SIP Calculator</Typography>
                             {/* <Link to="/sip-calculator">SIP Calculator</Link> */}
                         </Button>
                         <Button
                             sx={{ my: 2, color: "white", display: "block" }}
                             onClick={handleCloseNavMenu}
-                            >
-                                <Typography textAlign="center" sx={{textTransform: "capitalize"}} onClick={() => navigate("/lump-sum-calculator")}>LumpSum Calculator</Typography>
+                        >
+                            <Typography textAlign="center" sx={{ textTransform: "capitalize" }} onClick={() => navigate("/lump-sum-calculator")}>LumpSum Calculator</Typography>
                         </Button>
 
                         {/* {pages.map((page) => (
@@ -194,11 +202,14 @@ function Navbar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            {settings.map((setting) => (
+                            {/* {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
                                     <Typography textAlign="center">{setting}</Typography>
                                 </MenuItem>
-                            ))}
+                            ))} */}
+                            <MenuItem key="logout" onClick={handleCloseUserMenu}>
+                                <Typography textAlign="center">Logout</Typography>
+                            </MenuItem>
                         </Menu>
                     </Box>
                 </Toolbar>

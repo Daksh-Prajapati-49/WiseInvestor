@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -18,10 +18,10 @@ import { Link as Lik } from 'react-router-dom';
 
 function Copyright(props) {
     return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
+        <Typography id="cpyrt8" variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                FundFusion
+            <Link  color="inherit" href="https://github.com/vaibhavi3482">
+                Vaibhavi
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -34,7 +34,7 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 
-const Login = ({ setSignin, setUser }) => {
+const Login = ({ user, setUser}) => {
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
     const [email, setEmail] = useState("");
@@ -59,15 +59,21 @@ const Login = ({ setSignin, setUser }) => {
         if (response.status === 200) {
             const data = await response.json();
             console.log(data);
-            setSignin(true);
             setUser({
                 name: data.username,
                 email: data.email,
                 id: data._id,
             });
-            navigate('/'); // Redirect to / page
+             // Redirect to / page
         }
     };
+
+    useEffect(()=>{
+        if(user){
+            localStorage.setItem('user', JSON.stringify(user));
+            navigate('/'); // Redirect to / page
+        }
+    },[user])
 
     return (
         <ThemeProvider theme={defaultTheme}>
@@ -153,7 +159,7 @@ const Login = ({ setSignin, setUser }) => {
                             <Grid container>
                                 <Grid item xs>
                                     <Lik to="/forgot-password" variant="body2">
-                                        Forgot password?
+                                        
                                     </Lik>
                                 </Grid>
                                 <Grid item>

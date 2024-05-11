@@ -21,8 +21,8 @@ const preFundDetails = (mfData, fundDetails, setFundDetails) => {
         jp.push(element.return_stats[0].risk);
         jp.push("₹ " + element.min_sip_investment);
         jp.push(element.expense_ratio+"%");
-        jp.push("₹ "+element.nav + " Cr");
-        jp.push("₹ "+element.aum);
+        jp.push("₹ "+element.nav );
+        jp.push("₹ "+element.aum + " Cr");
         jp.push(element.exit_load);
         tp.push(jp);
     })

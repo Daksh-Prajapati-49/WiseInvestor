@@ -4,7 +4,7 @@ import Chart from 'chart.js/auto';
 import Navbar from '../components/Navbar';
 import { LineChart } from '@mui/x-charts/LineChart';
 
-const LumpSumCalculator = () => {
+const LumpSumCalculator = ({user, setUser}) => {
     const [principal, setPrincipal] = useState('');
     const [rateOfInterest, setRateOfInterest] = useState('');
     const [timePeriod, setTimePeriod] = useState('');
@@ -43,7 +43,7 @@ const LumpSumCalculator = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar user = {user} setUser={setUser} />
             <br />
             <div className="container">
                 <h2>Lump Sum Calculator</h2>

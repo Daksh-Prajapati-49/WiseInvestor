@@ -23,11 +23,11 @@ import Paper from '@mui/material/Paper';
 //   "navi-nifty-50-index-fund-direct-growth"
 // ]
 
-const CompareMutualFunds = ({ signin, user }) => {
+const CompareMutualFunds = ({ user, setUser }) => {
   const navigate = useNavigate();
-  console.log(signin);
+  // console.log(signin);
   useEffect(() => {
-    if (!signin) {
+    if (!user) {
       navigate('/login');
     }
   }, [])
@@ -109,7 +109,7 @@ const CompareMutualFunds = ({ signin, user }) => {
 
   return (
     <>
-      <Navbar />
+      <Navbar user = {user} setUser={setUser} />
       <br />
 
       <Box

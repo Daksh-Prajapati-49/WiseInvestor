@@ -18,10 +18,10 @@ import { Link as Lik } from 'react-router-dom';
 
 function Copyright(props) {
     return (
-        <Typography variant="body2" color="text.secondary" align="center" {...props}>
+        <Typography id="cpyrt8" variant="body2" color="text.secondary" align="center" {...props}>
             {'Copyright © '}
-            <Link color="inherit" href="https://mui.com/">
-                FundFusion
+            <Link  color="inherit" href="https://github.com/vaibhavi3482">
+                Vaibhavi
             </Link>{' '}
             {new Date().getFullYear()}
             {'.'}
@@ -145,7 +145,7 @@ const Register = () => {
                             <Grid container>
                                 <Grid item xs>
                                     <Lik to="/forgot-password" variant="body2">
-                                        Forgot password?
+                                        
                                     </Lik>
                                 </Grid>
                                 <Grid item>

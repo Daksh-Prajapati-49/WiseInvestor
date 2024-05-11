@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import './SIPCalculator.css'; // Import the CSS file
+import './SIPCalculator.css'; 
 import Navbar from '../components/Navbar';
 import Chart from 'chart.js/auto';
 import { LineChart } from '@mui/x-charts/LineChart';
 
-const SIPCalculator = () => {
+const SIPCalculator = ({user, setUser}) => {
     const [principal, setPrincipal] = useState('');
     const [rateOfInterest, setRateOfInterest] = useState('');
     const [timePeriod, setTimePeriod] = useState('');
@@ -47,7 +47,7 @@ const SIPCalculator = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar user = {user} setUser={setUser} />
             <br />
             <div className="container">
                 <h2>SIP Calculator</h2>
