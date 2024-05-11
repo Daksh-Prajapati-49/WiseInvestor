@@ -43,7 +43,7 @@ function Navbar() {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" style={{backgroundColor:'#0c4a6e'}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <InsightsIcon sx={{ display: { xs: "none", md: "flex" }, mr: 1 }} />
